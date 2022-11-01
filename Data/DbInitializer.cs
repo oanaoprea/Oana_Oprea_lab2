@@ -21,6 +21,11 @@ namespace Oana_Oprea_lab2.Data
                     new Customer { Name = "Popescu Marcela", Adress = "Str. Plopilor, nr. 24", BirthDate = DateTime.Parse("1979-09-01") },
                     new Customer { Name = "Mihailescu Cornel", Adress = "Str. Bucuresti, nr. 45, ap. 2", BirthDate = DateTime.Parse("1969-07-08") }
                     );
+
+                    context.Orders.AddRange(
+                    new Order { CustomerID = 1, BookID = 1, OrderDate = DateTime.Parse("2022-09-01") },
+                    new Order { CustomerID = 2, BookID = 2, OrderDate = DateTime.Parse("2022-07-08") }
+                    );
                     context.SaveChanges();
                 }
             }
