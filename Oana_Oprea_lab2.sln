@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oana_Oprea_lab2", "Oana_Oprea_lab2.csproj", "{272F3C7C-BFFD-47A4-B5FF-AC2AE2C65219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oana_Oprea_lab2", "Oana_Oprea_lab2.csproj", "{272F3C7C-BFFD-47A4-B5FF-AC2AE2C65219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryModel", "LibraryModel\LibraryModel.csproj", "{A2C68FD3-F7A4-44F2-91CE-89E4602D001C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebAPI", "..\LibraryWebAPI\LibraryWebAPI.csproj", "{4579517F-3C36-4923-A6BE-24426EA35F41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{272F3C7C-BFFD-47A4-B5FF-AC2AE2C65219}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272F3C7C-BFFD-47A4-B5FF-AC2AE2C65219}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272F3C7C-BFFD-47A4-B5FF-AC2AE2C65219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C68FD3-F7A4-44F2-91CE-89E4602D001C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C68FD3-F7A4-44F2-91CE-89E4602D001C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C68FD3-F7A4-44F2-91CE-89E4602D001C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C68FD3-F7A4-44F2-91CE-89E4602D001C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4579517F-3C36-4923-A6BE-24426EA35F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4579517F-3C36-4923-A6BE-24426EA35F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4579517F-3C36-4923-A6BE-24426EA35F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4579517F-3C36-4923-A6BE-24426EA35F41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
