@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Oana_Oprea_lab2.Data;
 using Oana_Oprea_lab2.Hubs;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,37 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<LibraryContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<IdentityContext>();
+
 builder.Services.AddSignalR();
+
+builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<IdentityContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+    options.Lockout.MaxFailedAccessAttempts = 3;
+    options.Lockout.AllowedForNewUsers = true;
+});
+
+builder.Services.AddAuthorization(opts => 
+{ 
+    opts.AddPolicy("OnlySales", policy => 
+    { 
+        policy.RequireClaim("Departament", "Sales"); 
+    }); 
+});
+
+builder.Services.AddAuthorization(opts => { opts.AddPolicy("SalesManager", policy => { policy.RequireRole("Manager"); policy.RequireClaim("Departament", "Sales"); }); });
+
+builder.Services.ConfigureApplicationCookie(opts => {
+    opts.AccessDeniedPath = "/Identity/Account/AccessDenied";
+});
 
 var app = builder.Build();
 
@@ -33,6 +65,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
@@ -41,5 +75,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapHub<ChatHub>("/Chat");
+app.MapRazorPages();
 
 app.Run();
