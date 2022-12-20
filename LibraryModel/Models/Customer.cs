@@ -6,7 +6,7 @@
         public string Name { get; set; }
         public string Adress { get; set; }
         public DateTime BirthDate { get; set; }
-        public int? CityID { get; set; }
+        public int CityID { get; set; }
         public ICollection<Order>? Orders { get; set; }
         public City? City { get; set; }
     }

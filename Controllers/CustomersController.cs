@@ -133,7 +133,7 @@ namespace Oana_Oprea_lab2.Controllers
 
             var client = new HttpClient();
             string json = JsonConvert.SerializeObject(customer);
-            var response = await client.PutAsync($"{_baseUrl}/{customer.CustomerID}",
+            var response = await client.PutAsync($"{_baseUrl}/{customer.CustomerId}",
             new StringContent(json, Encoding.UTF8, "application/json"));
 
             if (response.IsSuccessStatusCode)
@@ -173,7 +173,7 @@ namespace Oana_Oprea_lab2.Controllers
             {
                 var client = new HttpClient();
                 HttpRequestMessage request =
-                new HttpRequestMessage(HttpMethod.Delete, $"{_baseUrl}/{customer.CustomerID}")
+                new HttpRequestMessage(HttpMethod.Delete, $"{_baseUrl}/{customer.CustomerId}")
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(customer), Encoding.UTF8, "application/json")
                 };

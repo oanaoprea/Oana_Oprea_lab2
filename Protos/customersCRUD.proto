@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "Oana_Oprea_lab2";
+
+package customer;
+
+
+service CustomerService {
+	rpc GetAll (Empty) returns (CustomerList) {}
+	rpc Get (CustomerId) returns (Customer) {}
+	rpc Insert (Customer) returns (Empty) {}
+	rpc Update (Customer) returns (Customer) {}
+	rpc Delete (CustomerId) returns (Empty) {}
+}
+
+// The request message containing the user's name.
+message Empty {}
+
+// The response message containing the greetings.
+message Customer {
+	int32 customerId = 1;
+	string name = 2;
+	string adress = 3;
+	string birthdate = 4;
+	int32 cityId=5;
+}
+
+message CustomerList {
+	repeated Customer item = 1;
+}
+
+message CustomerId {
+	int32 id = 1;
+}
